@@ -1,49 +1,48 @@
 // Component is just a part of the react object
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router, // Browser Router assigned alias
+  Route,
+  Switch,
+  Link
+} from "react-router-dom";
+import logo from "./logo.svg";
+import "./App.css";
 
-import Movie from './Movie';
-
+import MoviesList from "./MoviesList";
 /*
-	Map takes an array modifies the data then outputs a new array first praramter of map is going to be a arrow function
- */
-class App extends Component {
-	// Set default state of movies to a blank array
-	// if the data doesnt come in its just a blank array
-	state = {
-		movies: []
-	};
 
-	// Fetch data from the API
-	async componentDidMount() {
-		try {
-			const res = await fetch(
-				'https://api.themoviedb.org/3/discover/movie?api_key=82256ccb86ef4724263776404ecfb09c&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1'
-			);
-			const movies = await res.json();
+	Link
 
-			this.setState({
-				movies: movies.results
-			});
-		} catch (e) {
-			console.log('error', e);
-		}
-	}
+	- Created a link that wraps the logo so that anytime it is clicked it will send the user to the home/root
 
-	render() {
-		const { movies } = this.state;
-		return (
-			<div className="App">
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-				</header>
-				{movies.map(movie => (
-					<Movie key={movie.id} movie={movie} />
-				))}
-			</div>
-		);
-	}
-}
+*/
+const App = () => (
+  <Router>
+    <div className="App">
+      <header className="App-header">
+        <Link to="/">
+          <img src={logo} className="App-logo" alt="logo" />
+        </Link>
+      </header>
+      <Switch>
+        <Route exact path="/" component={MoviesList} />
+        <Route path="/:id" component={Test} />
+      </Switch>
+    </div>
+  </Router>
+);
 
 export default App;
+/*
+
+	Routing
+
+	- Switch components work like switch statements
+	- The /:id is telling the route that we are using parameters
+	- in the test component we are passing down the parameters we do this using match(prop)
+	- match.params allows us to grab the ID the display it.
+
+ */
+// Test Component
+const Test = ({ match }) => <h1>{match.params.id}</h1>;
