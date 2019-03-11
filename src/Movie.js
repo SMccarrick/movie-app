@@ -1,22 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 // Poster path
-const POSTER_PATH = 'http://image.tmdb.org/t/p/w154';
+const POSTER_PATH = "http://image.tmdb.org/t/p/w154";
 
 /*
-	Functional Stateless Component
+	link
 
-  - Used destructoring to pass through the props for movie
-  - Instead of a class I have just used a function.
-  - Always remember to export the function
-  - Dynamically used the movie title for the alt
-  - Combined the poster path to a string
+	- We wrapped the image with a link tag
+	- Dynamically created the Link path using the id from movie
+	
   */
 const Movie = ({ movie }) => (
-	<div>
-		<img src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
-	</div>
+  <div>
+    <Link to={`/${movie.id}`}>
+      <img src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
+    </Link>
+  </div>
 );
 
 export default Movie;
@@ -28,7 +29,7 @@ export default Movie;
 
 */
 Movie.propTypes = {
-	movie: PropTypes.shape({
-		title: PropTypes.string.isRequired
-	}).isRequired
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired
+  }).isRequired
 };
