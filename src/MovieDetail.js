@@ -23,4 +23,17 @@ class MovieDetail extends Component {
       console.log("error", e);
     }
   }
+
+  render() {
+    const { movie } = this.state;
+    return (
+      <div>
+        <h1>{movie.title}</h1>
+        <p>{movie.release_date}</p>
+        <h1>{movie.overview}</h1>
+      </div>
+    );
+  }
+}
+
 export default MovieDetail;
