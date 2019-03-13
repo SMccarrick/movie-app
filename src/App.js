@@ -10,6 +10,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import MoviesList from "./MoviesList";
+import MovieDetail from "./MovieDetail";
 /*
 
 	Link
@@ -27,22 +28,10 @@ const App = () => (
       </header>
       <Switch>
         <Route exact path="/" component={MoviesList} />
-        <Route path="/:id" component={Test} />
+        <Route path="/:id" component={MovieDetail} />
       </Switch>
     </div>
   </Router>
 );
 
 export default App;
-/*
-
-	Routing
-
-	- Switch components work like switch statements
-	- The /:id is telling the route that we are using parameters
-	- in the test component we are passing down the parameters we do this using match(prop)
-	- match.params allows us to grab the ID the display it.
-
- */
-// Test Component
-const Test = ({ match }) => <h1>{match.params.id}</h1>;
