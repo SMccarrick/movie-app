@@ -31,9 +31,10 @@ class MoviesList extends Component {
   }
 
   render() {
+    const { movies } = this.state;
     return (
       <div>
-        {this.state.movies.map(movie => (
+        {movies.map(movie => (
           <Movie key={movie.id} movie={movie} />
         ))}
       </div>
