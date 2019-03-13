@@ -1,6 +1,10 @@
 // Component is just a part of the react object
 import React, { Component } from "react";
 class MovieDetail extends Component {
+  state = {
+    movie: {}
+  };
+
   // Fetch data from the API
   async componentDidMount() {
     const { match } = this.props;
