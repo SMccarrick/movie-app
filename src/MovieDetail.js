@@ -1,5 +1,7 @@
 // Component is just a part of the react object
 import React, { Component } from "react";
+import styled from "styled-components";
+import { Poster } from "./Movie";
 
 // Poster path
 const POSTER_PATH = "http://image.tmdb.org/t/p/w154";
