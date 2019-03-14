@@ -53,3 +53,16 @@ const MovieWrapper = styled.div`
   background-size: cover;
 `;
 
+const MovieInfo = styled.div`
+  background: white;
+  text-align: left;
+  padding: 2rem 10%;
+  display: flex;
+  > div {
+    margin-left 20px;
+  }
+  img {
+    postition: relative;
+    top: -5rem;
+  }
+`;
