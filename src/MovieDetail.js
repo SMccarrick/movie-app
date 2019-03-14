@@ -33,13 +33,19 @@ class MovieDetail extends Component {
   render() {
     const { movie } = this.state;
     return (
-      <div>
-        <img src={`${BACKDROP_PATH}${movie.backdrop_path}`} alt={movie.title} />
-        <img src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
-        <h1>{movie.title}</h1>
-        <p>{movie.release_date}</p>
-        <h1>{movie.overview}</h1>
-      </div>
+      <MovieWrapper backdrop={`${BACKDROP_PATH}${movie.backdrop_path}`}>
+        <MovieInfo>
+          <Poster
+            src={`${POSTER_PATH}${movie.poster_path}`}
+            alt={movie.title}
+          />
+          <div>
+            <h1>{movie.title}</h1>
+            <p>{movie.release_date}</p>
+            <h1>{movie.overview}</h1>
+          </div>
+        </MovieInfo>
+      </MovieWrapper>
     );
   }
 }
