@@ -10,7 +10,7 @@ const POSTER_PATH = "http://image.tmdb.org/t/p/w154";
 
 	- We wrapped the image with a link tag
 	- Dynamically created the Link path using the id from movie
-	
+
   */
 const Movie = ({ movie }) => (
   <div>
@@ -33,3 +33,7 @@ Movie.propTypes = {
     title: PropTypes.string.isRequired
   }).isRequired
 };
+
+export const Poster = styled.img`
+  box-shadow: 0 0 35px black;
+`;
