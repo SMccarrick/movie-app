@@ -1,5 +1,6 @@
 // Component is just a part of the react object
 import React, { Component } from "react";
+import styled from "styled-components";
 import "./App.css";
 
 import Movie from "./Movie";
@@ -9,7 +10,7 @@ import Movie from "./Movie";
  */
 class MoviesList extends Component {
   // Set default state of movies to a blank array
-  // if the data doesnt come in its just a blank array
+  // If the data doesnt come in its just a blank array
   state = {
     movies: []
   };
@@ -33,13 +34,20 @@ class MoviesList extends Component {
   render() {
     const { movies } = this.state;
     return (
-      <div>
+      <MovieGrid>
         {movies.map(movie => (
           <Movie key={movie.id} movie={movie} />
         ))}
-      </div>
+      </MovieGrid>
     );
   }
 }
 
 export default MoviesList;
+
+const MovieGrid = styled.div`
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(5, 1fr);
+  grid-row-gap: 1rem;
+`;
